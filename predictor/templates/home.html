@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breast Cancer Detection Form</title>
+    <style>
+      .container {
+        width: 600px;
+        margin: 70px auto;
+        padding: 20px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+      }
+      .form-container {
+        flex: 1;
+        padding-right: 10px;
+      }
+      .result-container {
+        flex: 1;
+        border: 1px solid #ccc;
+        border-radius: 15 px;
+        padding: 10px;
+      }
+      h1 {
+        text-align: center;
+      }
+      input[type="float"]::-webkit-inner-spin-button,
+      input[type="float"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      input[type="float"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <h1>Breast Cancer Detection</h1>
+        <form action="{% url 'homeFunciton' %}" method="post">
+          {% csrf_token %}
+          <input type="float" name="radius" placeholder="Enter radius se" />
+          <input type="float" name="texture" placeholder="Enter texture se" />
+          <input
+            type="float"
+            name="perimeter"
+            placeholder="Enter perimeter se"
+          />
+          <input type="float" name="area" placeholder="Enter area se" />
+          <input
+            type="float"
+            name="smoothness"
+            placeholder="Enter smoothness se"
+          />
+          <input
+            type="float"
+            name="compactness"
+            placeholder="Enter compactness se "
+          />
+          <input
+            type="float"
+            name="concavity"
+            placeholder="Enter concavity se"
+          />
+          <input
+            type="float"
+            name="concavepoints"
+            placeholder="Enter concave points se"
+          />
+          <input type="float" name="symmetry" placeholder="Enter symmetry se" />
+          <input
+            type="float"
+            name="fractaldimension"
+            placeholder="Enter fractal dimension "
+          />
+          <input
+            type="float"
+            name="radiusworst"
+            placeholder="Enter radius worst"
+          />
+          <input
+            type="float"
+            name="textureworst"
+            placeholder="Enter texture worst"
+          />
+          <input
+            type="float"
+            name="perimeterworst"
+            placeholder="Enter perimeter worst"
+          />
+          <input type="float" name="areaworst" placeholder="Enter area worst" />
+          <input
+            type="float"
+            name="smoothnessworst"
+            placeholder="Enter smoothness worst"
+          />
+          <input
+            type="float"
+            name="compactnessworst"
+            placeholder="Enter compactness worst"
+          />
+          <input
+            type="float"
+            name="concavityworst"
+            placeholder="Enter concavity worst"
+          />
+          <input
+            type="float"
+            name="concavepointsworst"
+            placeholder="Enter  concave points worst"
+          />
+          <input
+            type="float"
+            name="symmetryworst"
+            placeholder="Enter symmetry worst"
+          />
+          <input
+            type="float"
+            name="fractaldimensionworst"
+            placeholder="Enter fractal dimension worst"
+          />
+
+          <button type="submit">PREDICT</button>
+        </form>
+      </div>
+      <div class="result-container">
+        <h2>Diagnosis of Breast Tissues (M = malignant, B = benign)</h2>
+        <div id="result">Diagnosis: {{ result }}</div>
+      </div>
+    </div>
+  </body>
+</html>
